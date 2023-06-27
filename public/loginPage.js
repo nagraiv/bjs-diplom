@@ -1,8 +1,8 @@
 'use strict'
 
 const userForm = new UserForm();
-userForm.loginFormCallback = function(data) {
-    ApiConnector.login(data, (result) => {
+userForm.loginFormCallback = function({ login, password }) {
+    ApiConnector.login({ login, password }, (result) => {
         if (result.success) {
             location.reload();
         } else {
@@ -12,8 +12,8 @@ userForm.loginFormCallback = function(data) {
 
 }
 
-userForm.registerFormCallback = function(data) {
-    ApiConnector.register(data, (result) => {
+userForm.registerFormCallback = function({ login, password }) {
+    ApiConnector.register({ login, password }, (result) => {
         if (result.success) {
             location.reload();
         } else {
